@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { post } from "../type/post";
 import BlogTag from "../components/BlogTag";
-import { nanoid } from "nanoid";
 import styled from "styled-components";
 import Router from "next/router";
 type Props = {
@@ -51,7 +50,7 @@ const PostItem = (props: Props) => {
       {props.post.map((item) => {
         return (
           <Warp
-            key={nanoid()}
+            key={item.fields.post_id}
             onClick={() => {
               routerPostDetail(item.fields.post_id);
             }}

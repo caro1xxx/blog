@@ -10,7 +10,7 @@ export default function Home({ data }) {
   return (
     <div>
       <NavBar></NavBar>
-      <Search></Search>
+      <Search setPostMethod={setPostList}></Search>
       <PostItem post={postList}></PostItem>
     </div>
   );

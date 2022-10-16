@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-type Props = {};
+import { postListRes, postFiled } from "../type/post";
+type Props = {
+  setPostMethod: any;
+};
 
 const Warp = styled.div`
   background-color: #ececec;
@@ -11,6 +14,9 @@ const Warp = styled.div`
   padding: 0px 10px;
   display: flex;
   align-items: center;
+  @media screen and (max-width: 500px) {
+    width: 90%;
+  }
 `;
 const Input = styled.input`
   outline: none;
@@ -24,20 +30,30 @@ const Input = styled.input`
 const Search = (props: Props) => {
   const [SearchValue, setSearchValue] = useState("");
 
-  const changeSearchValue = (e) => {
-    console.log(e.target.value);
+  const changeSearchValue = async (e) => {
+    setSearchValue(e.target.value);
+  };
+
+  const getPost = async () => {
+    const res = await fetch(
+      `http://127.0.0.1:8000/api/v1/PostDetail/?SearchKey=${SearchValue}`
+    );
+    const data: postListRes = await res.json();
+    if (data.post != undefined && data.post != " ") {
+      props.setPostMethod(JSON.parse(data.post));
+    }
   };
 
   return (
     <Warp>
       &gt;
       <Input
-        // value={SearchValue}
         onChange={(e) => {
           changeSearchValue(e);
         }}
       ></Input>
       <svg
+        onClick={getPost}
         className="icon"
         viewBox="0 0 1024 1024"
         version="1.1"
