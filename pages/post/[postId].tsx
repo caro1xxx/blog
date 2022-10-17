@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import styled from "styled-components";
 import NavBar from "../../components/NavBar";
 import { nanoid } from "nanoid";
+import Head from "next/head";
 // markdown支持
 import ReactMarkdown from "react-markdown";
 //支持markdown代码高亮
@@ -39,15 +40,18 @@ const PostId = ({ data }) => {
     document.querySelectorAll("pre").forEach((block) => {
       try {
         hljs.highlightBlock(block);
-      } catch (e) {
-        console.log(e);
-      }
+      } catch (e) {}
     });
   });
 
   return (
     <div>
+      <Head>
+        <title>{Post[0].fields.title}</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <NavBar></NavBar>
+      <div style={{ paddingTop: "70px" }}></div>
       <Warp className="markdown-body">
         {Post.map((item) => {
           return (

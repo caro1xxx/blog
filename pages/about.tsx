@@ -1,7 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import NavBar from "../components/NavBar";
-import Image from "next/image";
+import Subscribe from "../components/Subscribe";
+import Head from "next/head";
+import { nanoid } from "nanoid";
 type Props = {};
 
 const Warp = styled.div`
@@ -12,6 +14,7 @@ const Warp = styled.div`
   }
   cursor: pointer;
   padding: 0.5rem 0;
+  padding-top: 70px;
 `;
 
 const Url = styled.a`
@@ -41,8 +44,13 @@ const Guide = styled.div`
 const about = (props: Props) => {
   return (
     <div>
+      <Head key={nanoid()}>
+        <title>About</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <NavBar></NavBar>
       <Warp>
+        <Subscribe></Subscribe>
         <h2>Hello!🎉我是bezos</h2>
         <p>
           该Blog源码

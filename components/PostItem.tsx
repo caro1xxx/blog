@@ -3,8 +3,10 @@ import { post } from "../type/post";
 import BlogTag from "../components/BlogTag";
 import styled from "styled-components";
 import Router from "next/router";
+
 type Props = {
-  post: post[];
+  // post: post[];
+  post: any;
 };
 
 const Warp = styled.div`

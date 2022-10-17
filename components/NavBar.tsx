@@ -5,6 +5,9 @@ type Props = {};
 const Warp = styled.div`
   height: 4rem;
   font-size: 1.5rem;
+  position: fixed;
+  width: 100%;
+  background-color: #ffffffad;
 `;
 
 const Bar = styled.div`

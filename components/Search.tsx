@@ -42,8 +42,10 @@ const Search = (props: Props) => {
       }
     );
     const data: postListRes = await res.json();
-    if (data.post != undefined && data.post != " ") {
-      props.setPostMethod(JSON.parse(data.post));
+    if (data.post != undefined) {
+      if (typeof data.post === "string") {
+        props.setPostMethod(JSON.parse(data.post));
+      }
     }
   };
 
