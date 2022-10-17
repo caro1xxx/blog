@@ -8,6 +8,9 @@ const Logo = styled.div`
   display: inline-block;
   font-size: 20vw;
   color: white;
+  /* @media screen and (max-width: 410px) {
+    font-size: 15px;
+  } */
 `;
 
 const Introduce = styled.div`
@@ -17,7 +20,27 @@ const Introduce = styled.div`
   bottom: 25%;
   left: 50%;
   width: 45%;
+  @media screen and (max-width: 810px) {
+    top: 10%;
+    bottom: 25%;
+    left: 35%;
+    width: 60%;
+  }
+  @media screen and (max-width: 500px) {
+    width: 80%;
+    left: 5%;
+    top: 10%;
+    bottom: 25%;
+  }
+  @media screen and (max-width: 410px) {
+    font-size: 10px;
+    width: 80%;
+    left: 5%;
+    top: 10%;
+    bottom: 43%;
+  }
 `;
+
 const IntroduceBottom = styled.div`
   background-color: #d7d7d7a6;
   position: absolute;
@@ -34,6 +57,44 @@ const IntroduceBottom = styled.div`
     li {
       display: flex;
     }
+  }
+
+  @media screen and (max-width: 810px) {
+    top: 17%;
+    bottom: 17%;
+    left: 40%;
+    width: 60%;
+    ul {
+      padding-left: 1rem;
+      padding-right: 2rem;
+      list-style: none;
+      font-style: italic;
+      li {
+        display: flex;
+      }
+    }
+  }
+  @media screen and (max-width: 500px) {
+    width: 80%;
+    left: 10%;
+    top: 12%;
+    bottom: 22%;
+    ul {
+      padding-left: 1rem;
+      padding-right: 1rem;
+      list-style: none;
+      font-style: italic;
+      li {
+        display: flex;
+      }
+    }
+  }
+  @media screen and (max-width: 410px) {
+    font-size: 10px;
+    width: 80%;
+    left: 10%;
+    top: 12%;
+    bottom: 40%;
   }
 `;
 
@@ -138,7 +199,7 @@ export default function About() {
             style={{
               position: "absolute",
               bottom: "12%",
-              right: "5rem",
+              right: "3rem",
               display: "block",
               textAlign: "left",
               textDecoration: "underline",

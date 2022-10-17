@@ -36,7 +36,10 @@ const Search = (props: Props) => {
 
   const getPost = async () => {
     const res = await fetch(
-      `http://127.0.0.1:8000/api/v1/PostDetail/?SearchKey=${SearchValue}`
+      `http://127.0.0.1:8000/api/v1/PostDetail/?SearchKey=${SearchValue}`,
+      {
+        // cache: "no-cache",
+      }
     );
     const data: postListRes = await res.json();
     if (data.post != undefined && data.post != " ") {
