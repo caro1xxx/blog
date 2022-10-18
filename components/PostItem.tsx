@@ -61,7 +61,7 @@ const PostItem = (props: Props) => {
               <div>{item.fields.title}</div>
               <BlogTag type={item.fields.type}></BlogTag>
             </Title>
-            <Content>{item.fields.content}</Content>
+            <Content>{item.fields.introduce}</Content>
             <Time>{item.fields.update_time}</Time>
           </Warp>
         );

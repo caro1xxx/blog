@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { postListRes, postFiled } from "../type/post";
+import { baseHost } from "../utils/ENV";
 type Props = {
   setPostMethod: any;
 };
@@ -33,14 +34,8 @@ const Search = (props: Props) => {
   const changeSearchValue = async (e) => {
     setSearchValue(e.target.value);
   };
-
   const getPost = async () => {
-    const res = await fetch(
-      `http://127.0.0.1:8000/api/v1/PostDetail/?SearchKey=${SearchValue}`,
-      {
-        // cache: "no-cache",
-      }
-    );
+    const res = await fetch(baseHost + `PostDetail/?SearchKey=${SearchValue}`);
     const data: postListRes = await res.json();
     if (data.post != undefined) {
       if (typeof data.post === "string") {

@@ -4,6 +4,7 @@ import styled from "styled-components";
 import NavBar from "../../components/NavBar";
 import { nanoid } from "nanoid";
 import Head from "next/head";
+import { baseHost } from "../../utils/ENV";
 // markdown支持
 import ReactMarkdown from "react-markdown";
 //支持markdown代码高亮
@@ -70,7 +71,7 @@ const PostId = ({ data }) => {
 export default PostId;
 
 export async function getServerSideProps(context) {
-  const res = await fetch(`http://127.0.0.1:8000/api/v1/PostDetail/`, {
+  const res = await fetch(baseHost + `PostDetail/`, {
     method: "post",
     body: JSON.stringify({ postId: context.params }),
     headers: {

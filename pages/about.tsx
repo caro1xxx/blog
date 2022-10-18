@@ -123,7 +123,7 @@ const about = (props: Props) => {
           </svg>
         </Guide>
         <p style={{ textAlign: "center", marginTop: "100px" }}>
-          不甘现状,脱离俗者,奋起反抗,实现自我.愿所有身怀抱负者,终实现心之所想
+          Where there's a will there's a way.
         </p>
         <p style={{ textAlign: "right", marginTop: "50px" }}>
           Email:caro1xxxhv@gmail.com

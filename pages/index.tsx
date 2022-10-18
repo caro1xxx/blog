@@ -3,11 +3,13 @@ import NavBar from "../components/NavBar";
 import Search from "../components/Search";
 import PostItem from "../components/PostItem";
 import { nanoid } from "nanoid";
-import { useState } from "react";
-
+import { useEffect, useState } from "react";
 import { postListRes, postFiled } from "../type/post";
+import { baseHost } from "../utils/ENV";
+
 export default function Home({ data }) {
   const [postList, setPostList] = useState(JSON.parse(data.post));
+
   return (
     <div>
       <Head key={nanoid()}>
@@ -24,7 +26,7 @@ export default function Home({ data }) {
 }
 
 export async function getServerSideProps() {
-  const res = await fetch(`http://127.0.0.1:8000/api/v1/PostList/`);
+  const res = await fetch(baseHost + `PostList/`);
   const data: postListRes = await res.json();
   return { props: { data } };
 }
