@@ -1,0 +1,2 @@
+User-agent: Googlebot
+Allow: https://bezos.life/sitemap.xml
